@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TreesDatabase.Models")]
+[assembly: AssemblyTitle("DependencyInjectionProject.Model")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TreesDatabase.Models")]
+[assembly: AssemblyProduct("DependencyInjectionProject.Model")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e1a6301d-2850-4aa5-be76-f91586daa416")]
+[assembly: Guid("69b98170-df52-4f6e-bd87-d62b8a2dc7d9")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -1,9 +1,9 @@
-﻿using TreesDatabase.Models;
-using TreesDatabase.Utilities;
+﻿using DependencyInjectionProject.Model;
+using System;
 
-namespace TreesDatabase
+namespace DependencyInjectionProject.Utilities
 {
-    internal class TreeService
+    public class TreeService
     {
         private INotificationService notificationService;
 
@@ -16,6 +16,14 @@ namespace TreesDatabase
         {
             tree.Name = name;
             notificationService.NotifyNameModified(name);
+        }
+
+        public void Show(Tree[] trees)
+        {
+            foreach(var item in trees)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }

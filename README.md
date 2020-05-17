@@ -11,6 +11,7 @@ The project made for Software Design Patterns subject realized at the Gdansk Uni
 
 ## Technologies
 * **C#** - version 8.0
+* **SQLite** - version 3.1.4
 
 ## Status
 Project is: **_in progress_**

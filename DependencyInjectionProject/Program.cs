@@ -1,8 +1,8 @@
 ﻿using Autofac;
 using System;
-using TreesDatabase.Utilities;
+using DependencyInjectionProject.Utilities;
 
-namespace TreesDatabase
+namespace DependencyInjectionProject
 {
     class Program
     {
@@ -13,7 +13,7 @@ namespace TreesDatabase
 
             var container = containerBuilder.Build();
 
-            using(var scope = container.BeginLifetimeScope())
+            using (var scope = container.BeginLifetimeScope())
             {
                 var application = scope.Resolve<IApplication>();
                 application.Run();
