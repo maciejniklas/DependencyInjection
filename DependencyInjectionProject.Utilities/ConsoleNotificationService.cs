@@ -14,15 +14,36 @@ namespace DependencyInjectionProject.Utilities
             Console.WriteLine(exception.StackTrace);
         }
 
+        public void NotifyGPSCoordsModified(Vector2 gpsCoords)
+        {
+            Console.WriteLine($"GPS coordinates was successfully modified to {gpsCoords}");
+        }
+
+        public void NotifyImageModified(string asciiArt)
+        {
+            Console.WriteLine("Image was successfully modified");
+            Console.WriteLine(asciiArt);
+        }
+
         public void NotifyNameModified(string name)
         {
             Console.WriteLine($"Name was successfully modified to {name}");
+        }
+
+        public void NotifyNotFound()
+        {
+            Console.WriteLine("Any object found");
         }
 
         public void NotifyNotFound(Tree tree)
         {
             Console.WriteLine("Not found that tree in database");
             Console.WriteLine(tree);
+        }
+
+        public void NotifyPlantYearModified(int plantYear)
+        {
+            Console.WriteLine($"Plant year was successfully modified to {plantYear}");
         }
     }
 }

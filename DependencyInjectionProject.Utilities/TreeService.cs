@@ -18,6 +18,23 @@ namespace DependencyInjectionProject.Utilities
             notificationService.NotifyNameModified(name);
         }
 
+        public void ModifyPlantYear(Tree tree, int plantYear)
+        {
+            tree.PlantYear = plantYear;
+            notificationService.NotifyPlantYearModified(plantYear);
+        }
+
+        public void ModifyGPSCoords(Tree tree, Vector2 gpsCoords)
+        {
+            tree.GPSCoordinates = gpsCoords;
+            notificationService.NotifyGPSCoordsModified(gpsCoords);
+        }
+
+        public void Show(Tree tree)
+        {
+            Console.WriteLine(tree);
+        }
+
         public void Show(Tree[] trees)
         {
             foreach(var item in trees)

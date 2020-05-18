@@ -31,7 +31,10 @@ namespace DependencyInjectionProject.Database
                 sqlBuilder.Append(@"CREATE TABLE IF NOT EXISTS Tree");
                 sqlBuilder.Append(@"(");
                 sqlBuilder.Append(@"id INTEGER PRIMARY KEY AUTOINCREMENT,");
-                sqlBuilder.Append(@"name STRING NOT NULL");
+                sqlBuilder.Append(@"name STRING NOT NULL,");
+                sqlBuilder.Append(@"plantYear INTEGER NOT NULL,");
+                sqlBuilder.Append(@"xCoord FLOAT NOT NULL,");
+                sqlBuilder.Append(@"yCoord FLOAT NOT NULL");
                 sqlBuilder.Append(@")");
 
                 connection.Open();
@@ -41,7 +44,41 @@ namespace DependencyInjectionProject.Database
                 command.ExecuteNonQuery();
                 sqlBuilder.Clear();
 
-                sqlBuilder.Append(@"INSERT INTO Tree(Name) VALUES ('The First One')");
+                sqlBuilder.Append(@"CREATE TABLE IF NOT EXISTS Image");
+                sqlBuilder.Append(@"(");
+                sqlBuilder.Append(@"id INTEGER PRIMARY KEY AUTOINCREMENT,");
+                sqlBuilder.Append(@"treeID INTEGER,");
+                sqlBuilder.Append(@"asciiArt STRING NOT NULL,");
+                sqlBuilder.Append(@"FOREIGN KEY(treeID) REFERENCES Tree(id)");
+                sqlBuilder.Append(@")");
+
+                command.CommandText = sqlBuilder.ToString();
+                command.CommandType = CommandType.Text;
+                command.ExecuteNonQuery();
+                sqlBuilder.Clear();
+
+                sqlBuilder.Append(@"INSERT INTO Tree(name, plantYear, xCoord, yCoord) VALUES ('The First One', 2000, 54.223, 126.542)");
+
+                command.CommandText = sqlBuilder.ToString();
+                command.CommandType = CommandType.Text;
+                command.ExecuteNonQuery();
+                sqlBuilder.Clear();
+
+                string image =
+@"     ,\
+    # (_
+      _)\##
+  ###/((_
+       ))\####
+     _((     
+####/  )\
+     ,;;'`;,
+    (_______)
+      \===/
+      /===\
+     /= aat =\";
+
+                sqlBuilder.Append($"INSERT INTO Image(treeID, asciiArt) VALUES (1, '{image.Replace("'", "`").Replace('"', '`')}')");
 
                 command.CommandText = sqlBuilder.ToString();
                 command.CommandType = CommandType.Text;
