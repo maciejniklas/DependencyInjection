@@ -1,7 +1,7 @@
 ﻿using ConsoleTables;
-using DependencyInjectionProject.Model;
+using DependencyInjectionProject.Utilities;
 
-namespace DependencyInjectionProject.Utilities
+namespace DependencyInjectionProject.Model
 {
     public class TreeService
     {
@@ -30,13 +30,12 @@ namespace DependencyInjectionProject.Utilities
         public void ModifyGPSCoords(Tree tree, Vector2 gpsCoords)
         {
             tree.GPSCoordinates = gpsCoords;
-            notificationService.NotifyGPSCoordsModified(gpsCoords);
+            notificationService.NotifyGPSCoordsModified(gpsCoords.ToString());
         }
 
         public void Show(Tree tree)
         {
             table.Rows.Clear();
-
             table.AddRow(tree.ID, tree.Name, tree.PlantYear, tree.GPSCoordinates);
             table.Write();
         }
@@ -45,10 +44,14 @@ namespace DependencyInjectionProject.Utilities
         {
             table.Rows.Clear();
 
-            foreach(var item in trees)
+            if(trees != null)
             {
-                table.AddRow(item.ID, item.Name, item.PlantYear, item.GPSCoordinates);
-            }
+                foreach (var item in trees)
+                {
+                    table.AddRow(item.ID, item.Name, item.PlantYear, item.GPSCoordinates);
+                }
+            }            
+
             table.Write();
         }
     }

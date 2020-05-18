@@ -70,6 +70,10 @@
       <Project>{61c7baf8-3b9c-4667-b789-0aa26d7d422f}</Project>
       <Name>DependencyInjectionProject.Database</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DependencyInjectionProject.Model\DependencyInjectionProject.Model.csproj">
+      <Project>{69b98170-df52-4f6e-bd87-d62b8a2dc7d9}</Project>
+      <Name>DependencyInjectionProject.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DependencyInjectionProject.UI\DependencyInjectionProject.UI.csproj">
       <Project>{f9b99989-dfed-4f04-ac98-b96915aa34f9}</Project>
       <Name>DependencyInjectionProject.UI</Name>

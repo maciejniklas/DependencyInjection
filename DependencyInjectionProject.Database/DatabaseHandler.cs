@@ -2,9 +2,7 @@
 using DependencyInjectionProject.Utilities;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity.Core.Metadata.Edm;
 using System.Linq;
-using System.Runtime.InteropServices;
 
 namespace DependencyInjectionProject.Database
 {
@@ -19,19 +17,26 @@ namespace DependencyInjectionProject.Database
             this.notificationService = notificationService;
         }
 
-        public void AddImage(int treeID, string asciiArt)
+        public bool AddImage(int treeID, string asciiArt)
         {
             database.NonQuery($"INSERT INTO Image(treeID, asciiArt) VALUES ({treeID}, '{asciiArt.Replace("'", "`").Replace('"', '`')}')");
+            return true;
         }
 
-        public void AddTree(string name, int plantYear, float xCoord, float yCoord)
+        public bool AddTree(string name, int plantYear, float xCoord, float yCoord)
         {
             database.NonQuery($"INSERT INTO Tree(name, plantYear, xCoord, yCoord) VALUES ('{name}', {plantYear}, {xCoord.ToString().Replace(',', '.')}, {yCoord.ToString().Replace(',', '.')})");
+            return true;
         }
 
         public bool DeleteImage(Tree tree, int id)
         {
-            if (ReadImages(tree.ID).Where(item => item.ID == id).Count() == 0)
+            if(ReadImages(tree.ID) == null)
+            {
+                notificationService.NotifyNotFound();
+                return false;
+            }
+            else if(ReadImages(tree.ID).Where(item => item.ID == id).Count() == 0)
             {
                 notificationService.NotifyNotFound();
                 return false;
@@ -45,7 +50,7 @@ namespace DependencyInjectionProject.Database
         {
             if (ReadTree(tree.ID) == null)
             {
-                notificationService.NotifyNotFound(tree);
+                notificationService.NotifyNotFound();
                 return false;
             }
 
@@ -67,7 +72,7 @@ namespace DependencyInjectionProject.Database
 
             foreach(DataRow row in data.Rows)
             {
-                result.Add(new Image(row.ItemArray[0].ToString(), row.ItemArray[1].ToString(), row.ItemArray[2].ToString()));
+                result.Add(new Image(row.ItemArray));
             }
 
             return result.ToArray();
@@ -80,6 +85,7 @@ namespace DependencyInjectionProject.Database
             if (data.Rows.Count == 0)
             {
                 notificationService.NotifyNotFound();
+                return null;
             }
 
             List<Tree> result = new List<Tree>();
@@ -109,7 +115,7 @@ namespace DependencyInjectionProject.Database
         {
             if(ReadTree(tree.ID) == null)
             {
-                notificationService.NotifyNotFound(tree);
+                notificationService.NotifyNotFound();
                 return;
             }
 

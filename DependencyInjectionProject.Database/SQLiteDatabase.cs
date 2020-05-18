@@ -6,7 +6,7 @@ using System.IO;
 
 namespace DependencyInjectionProject.Database
 {
-    public class SQLiteDatabase : IDatabase
+    public sealed class SQLiteDatabase : IDatabase
     {
         private INotificationService notificationService;
         private SQLiteConnection connection;

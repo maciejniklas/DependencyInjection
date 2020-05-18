@@ -49,11 +49,12 @@
     <Compile Include="AllTrees.cs" />
     <Compile Include="DeleteImage.cs" />
     <Compile Include="DeleteTree.cs" />
-    <Compile Include="EditTree.cs" />
+    <Compile Include="ModifyTree.cs" />
     <Compile Include="Exit.cs" />
     <Compile Include="ImageOptions.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="MenuCore.cs" />
+    <Compile Include="Mode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectTree.cs" />
     <Compile Include="Toolkit.cs" />

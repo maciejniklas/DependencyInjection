@@ -3,10 +3,9 @@ using System;
 
 namespace DependencyInjectionProject.UI
 {
-    internal class Exit : Page
+    internal sealed class Exit : Page
     {
-        public Exit(Program program) : base("Exit", program)
-        { }
+        public Exit(Program program) : base("Exit", program) { }
 
         public override void Display()
         {

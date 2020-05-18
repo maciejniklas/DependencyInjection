@@ -2,10 +2,10 @@
 {
     public class Tree
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public int PlantYear { get; set; }
-        public Vector2 GPSCoordinates { get; set; }
+        public int ID { get; private set; }
+        public string Name { get; internal set; }
+        public int PlantYear { get; internal set; }
+        public Vector2 GPSCoordinates { get; internal set; }
         
         public Tree(int id, string name, int plantYear, Vector2 gpsCoordinates)
         {

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DependencyInjectionProject.Database
 {
-    public class SQLiteDatabaseModeler : IDatabaseModeler
+    public sealed class SQLiteDatabaseModeler : IDatabaseModeler
     {
         private INotificationService notificationService;
 
@@ -31,10 +31,10 @@ namespace DependencyInjectionProject.Database
                 sqlBuilder.Append(@"CREATE TABLE IF NOT EXISTS Tree");
                 sqlBuilder.Append(@"(");
                 sqlBuilder.Append(@"id INTEGER PRIMARY KEY AUTOINCREMENT,");
-                sqlBuilder.Append(@"name STRING NOT NULL,");
-                sqlBuilder.Append(@"plantYear INTEGER NOT NULL,");
-                sqlBuilder.Append(@"xCoord FLOAT NOT NULL,");
-                sqlBuilder.Append(@"yCoord FLOAT NOT NULL");
+                sqlBuilder.Append(@"name STRING NOT NULL DEFAULT 'Default Name',");
+                sqlBuilder.Append(@"plantYear INTEGER NOT NULL DEFAULT 2000,");
+                sqlBuilder.Append(@"xCoord FLOAT NOT NULL DEFAULT 0.0,");
+                sqlBuilder.Append(@"yCoord FLOAT NOT NULL DEFAULT 0.0");
                 sqlBuilder.Append(@")");
 
                 connection.Open();
@@ -47,7 +47,7 @@ namespace DependencyInjectionProject.Database
                 sqlBuilder.Append(@"CREATE TABLE IF NOT EXISTS Image");
                 sqlBuilder.Append(@"(");
                 sqlBuilder.Append(@"id INTEGER PRIMARY KEY AUTOINCREMENT,");
-                sqlBuilder.Append(@"treeID INTEGER,");
+                sqlBuilder.Append(@"treeID INTEGER NOT NULL,");
                 sqlBuilder.Append(@"asciiArt STRING NOT NULL,");
                 sqlBuilder.Append(@"FOREIGN KEY(treeID) REFERENCES Tree(id) ON DELETE CASCADE");
                 sqlBuilder.Append(@")");

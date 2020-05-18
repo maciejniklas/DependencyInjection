@@ -3,7 +3,7 @@ using System;
 
 namespace DependencyInjectionProject.UI
 {
-    internal class MainMenu : MenuPage
+    internal sealed class MainMenu : MenuPage
     {
         public MainMenu(Program program) : base("Main menu", program )
         {
@@ -15,6 +15,7 @@ namespace DependencyInjectionProject.UI
 
         public override void Display()
         {
+            Toolkit.SelectedTree = null;
             Console.WriteLine(
 @" _____                         _       _        _                    
 |_   _| __ ___  ___  ___    __| | __ _| |_ __ _| |__   __ _ ___  ___ 
@@ -22,9 +23,6 @@ namespace DependencyInjectionProject.UI
   | || | |  __/  __/\__ \ | (_| | (_| | || (_| | |_) | (_| \__ \  __/
   |_||_|  \___|\___||___/  \__,_|\__,_|\__\__,_|_.__/ \__,_|___/\___|
                                                                      ");
-            Toolkit.SelectedTree = null;
-            Program.History.Clear();
-            Program.History.Push(this);
 
             base.Display();
 

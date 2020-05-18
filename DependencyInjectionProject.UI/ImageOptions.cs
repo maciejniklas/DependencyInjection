@@ -2,7 +2,7 @@
 
 namespace DependencyInjectionProject.UI
 {
-    internal class ImageOptions : MenuPage
+    internal sealed class ImageOptions : MenuPage
     {
         public ImageOptions(Program program) : base("Image options", program) 
         {

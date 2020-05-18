@@ -3,7 +3,7 @@ using System;
 
 namespace DependencyInjectionProject.UI
 {
-    internal class DeleteTree : Page
+    internal sealed class DeleteTree : Page
     {
         public DeleteTree(Program program) : base("Delete tree", program) { }
 

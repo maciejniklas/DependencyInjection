@@ -1,5 +1,4 @@
-﻿using DependencyInjectionProject.Model;
-using System;
+﻿using System;
 
 namespace DependencyInjectionProject.Utilities
 {
@@ -14,7 +13,7 @@ namespace DependencyInjectionProject.Utilities
             Console.WriteLine(exception.StackTrace);
         }
 
-        public void NotifyGPSCoordsModified(Vector2 gpsCoords)
+        public void NotifyGPSCoordsModified(string gpsCoords)
         {
             Console.WriteLine($"GPS coordinates was successfully modified to {gpsCoords}");
         }
@@ -33,11 +32,6 @@ namespace DependencyInjectionProject.Utilities
         public void NotifyNotFound()
         {
             Console.WriteLine("Any object found");
-        }
-
-        public void NotifyNotFound(Tree tree)
-        {
-            Console.WriteLine($"Not found tree with given id {tree.ID}");
         }
 
         public void NotifyPlantYearModified(int plantYear)

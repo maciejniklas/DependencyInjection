@@ -1,10 +1,10 @@
 ﻿using DependencyInjectionProject.Database;
-using DependencyInjectionProject.Utilities;
+using DependencyInjectionProject.Model;
 using EasyConsole;
 
 namespace DependencyInjectionProject.UI
 {
-    public class MenuCore : Program
+    public sealed class MenuCore : Program
     {
         public MenuCore(DatabaseHandler databaseHandler, TreeService treeService, ImageService imageService) : base("Dependency injection project", true)
         {
@@ -19,7 +19,7 @@ namespace DependencyInjectionProject.UI
             AddPage(new Exit(this));
 
             AddPage(new TreeOptions(this));
-            AddPage(new EditTree(this));
+            AddPage(new ModifyTree(this));
             AddPage(new DeleteTree(this));
 
             AddPage(new ImageOptions(this));

@@ -2,9 +2,9 @@
 {
     public class Image
     {
-        public int ID { get; set; }
-        public int TreeID { get; set; }
-        public string AsciiArt { get; set; }
+        public int ID { get; private set; }
+        public int TreeID { get; internal set; }
+        public string AsciiArt { get; internal set; }
 
         public Image(int id, int treeID, string asciiArt)
         {
@@ -13,11 +13,11 @@
             AsciiArt = asciiArt;
         }
         
-        public Image(string id, string treeID, string asciiArt)
+        public Image(object[] data)
         {
-            ID = int.Parse(id);
-            TreeID = int.Parse(treeID);
-            AsciiArt = asciiArt;
+            ID = int.Parse(data[0].ToString()); ;
+            TreeID = int.Parse(data[1].ToString());
+            AsciiArt = data[2].ToString();
         }
 
         public override string ToString()

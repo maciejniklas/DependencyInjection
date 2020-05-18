@@ -1,11 +1,12 @@
 ﻿using Autofac;
 using DependencyInjectionProject.Database;
+using DependencyInjectionProject.Model;
 using DependencyInjectionProject.UI;
 using DependencyInjectionProject.Utilities;
 
 namespace DependencyInjectionProject
 {
-    internal class ProgramModule : Autofac.Module
+    internal sealed class ProgramModule : Autofac.Module
     {
         protected override void Load(ContainerBuilder builder)
         {

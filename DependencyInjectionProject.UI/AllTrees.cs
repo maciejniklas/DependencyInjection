@@ -2,10 +2,9 @@
 
 namespace DependencyInjectionProject.UI
 {
-    internal class AllTrees : MenuPage
+    internal sealed class AllTrees : MenuPage
     {
-        public AllTrees(Program program) : base("All trees", program)
-        { }
+        public AllTrees(Program program) : base("All trees", program) { }
 
         public override void Display()
         {

@@ -3,23 +3,13 @@ using System;
 
 namespace DependencyInjectionProject.UI
 {
-    internal class DeleteImage : Page
+    internal sealed class DeleteImage : Page
     {
         public DeleteImage(Program program) : base("Delete image", program) { }
 
         public override void Display()
         {
-            Console.WriteLine("Image id: ");
-            object raw = Console.ReadLine();
-
-            int id;
-            if (!int.TryParse(raw.ToString(), out id))
-            {
-                Console.WriteLine($"{raw.ToString()} is not INTEGER");
-                Console.WriteLine("Press any key to navigate back");
-                Console.ReadKey();
-                Program.NavigateBack();
-            }
+            int id = Toolkit.UserInput<int>("Image id", Mode.Add, () => Program.NavigateBack());
 
             Console.WriteLine("Are you sure? (Y/N)");
             string answer = Console.ReadLine();
