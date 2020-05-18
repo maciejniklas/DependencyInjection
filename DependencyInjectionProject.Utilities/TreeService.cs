@@ -1,4 +1,5 @@
-﻿using DependencyInjectionProject.Model;
+﻿using ConsoleTables;
+using DependencyInjectionProject.Model;
 using System;
 
 namespace DependencyInjectionProject.Utilities
@@ -6,10 +7,13 @@ namespace DependencyInjectionProject.Utilities
     public class TreeService
     {
         private INotificationService notificationService;
+        private ConsoleTable table;
 
         public TreeService(INotificationService notificationService)
         {
             this.notificationService = notificationService;
+            
+            table = new ConsoleTable("ID", "Name", "Plant year", "GPS coordinates");
         }
 
         public void ModifyName(Tree tree, string name)
@@ -32,15 +36,17 @@ namespace DependencyInjectionProject.Utilities
 
         public void Show(Tree tree)
         {
-            Console.WriteLine(tree);
+            table.AddRow(tree.ID, tree.Name, tree.PlantYear, tree.GPSCoordinates);
+            table.Write();
         }
 
         public void Show(Tree[] trees)
         {
             foreach(var item in trees)
             {
-                Console.WriteLine(item);
+                table.AddRow(item.ID, item.Name, item.PlantYear, item.GPSCoordinates);
             }
+            table.Write();
         }
     }
 }

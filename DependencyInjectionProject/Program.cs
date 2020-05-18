@@ -1,6 +1,5 @@
 ﻿using Autofac;
-using System;
-using DependencyInjectionProject.Utilities;
+using DependencyInjectionProject.UI;
 
 namespace DependencyInjectionProject
 {
@@ -15,12 +14,8 @@ namespace DependencyInjectionProject
 
             using (var scope = container.BeginLifetimeScope())
             {
-                var application = scope.Resolve<IApplication>();
-                application.Run();
+                var application = scope.Resolve<MenuCore>();
             }
-
-            Console.WriteLine("Press any key to exit");
-            Console.ReadKey();
         }
     }
 }

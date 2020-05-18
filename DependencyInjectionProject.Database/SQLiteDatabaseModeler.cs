@@ -57,7 +57,7 @@ namespace DependencyInjectionProject.Database
                 command.ExecuteNonQuery();
                 sqlBuilder.Clear();
 
-                sqlBuilder.Append(@"INSERT INTO Tree(name, plantYear, xCoord, yCoord) VALUES ('The First One', 2000, 54.223, 126.542)");
+                sqlBuilder.Append(@"INSERT INTO Tree(name, plantYear, xCoord, yCoord) VALUES ('The First One', 2000, 54.223, 126.542), ('American Hornbeam', 1950, 123.6754321, 120.54326542), ('Pitch Pine', 1800, 110.341367345, 73.143655472435)");
 
                 command.CommandText = sqlBuilder.ToString();
                 command.CommandType = CommandType.Text;
@@ -79,6 +79,45 @@ namespace DependencyInjectionProject.Database
      /= aat =\";
 
                 sqlBuilder.Append($"INSERT INTO Image(treeID, asciiArt) VALUES (1, '{image.Replace("'", "`").Replace('"', '`')}')");
+
+                command.CommandText = sqlBuilder.ToString();
+                command.CommandType = CommandType.Text;
+                command.ExecuteNonQuery();
+                sqlBuilder.Clear();
+
+                image =
+@"              v .   ._, |_  .,
+           `-._\/  .  \ /    |/_
+               \\  _\, y | \//
+         _\_.___\\, \\/ -.\||
+           `7-,--.`._||  / / ,
+           /'     `-. `./ / |/_.'
+                     |    |//
+                     |_    /
+                     |-   |
+                     |   =|
+                     |    |
+--------------------/ ,  . \--------._";
+
+                sqlBuilder.Append($"INSERT INTO Image(treeID, asciiArt) VALUES (1, '{image.Replace("'", "`").Replace('"', '`')}')");
+
+                command.CommandText = sqlBuilder.ToString();
+                command.CommandType = CommandType.Text;
+                command.ExecuteNonQuery();
+                sqlBuilder.Clear();
+
+                image =
+@"       _-_
+    /~~   ~~\
+ /~~         ~~\
+{               }
+ \  _-     -_  /
+   ~  \\ //  ~
+_- -   | | _- _
+  _ -  | |   -_
+      // \\";
+
+                sqlBuilder.Append($"INSERT INTO Image(treeID, asciiArt) VALUES (2, '{image.Replace("'", "`").Replace('"', '`')}')");
 
                 command.CommandText = sqlBuilder.ToString();
                 command.CommandType = CommandType.Text;
