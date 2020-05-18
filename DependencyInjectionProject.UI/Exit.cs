@@ -5,8 +5,7 @@ namespace DependencyInjectionProject.UI
 {
     internal class Exit : Page
     {
-        public Exit(Program program)
-            : base("Exit", program)
+        public Exit(Program program) : base("Exit", program)
         { }
 
         public override void Display()
@@ -19,7 +18,9 @@ namespace DependencyInjectionProject.UI
  \____|\___/ \___/ \__,_| |_.__/ \__, |\___|
                                  |___/      ");
 
-            base.Display();
+            Console.WriteLine("Press any key to exit");
+            Console.ReadKey();
+            Environment.Exit(0);
         }
     }
 }

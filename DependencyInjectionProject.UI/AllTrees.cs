@@ -4,13 +4,12 @@ namespace DependencyInjectionProject.UI
 {
     internal class AllTrees : MenuPage
     {
-        public AllTrees(Program program)
-            : base("All trees", program)
+        public AllTrees(Program program) : base("All trees", program)
         { }
 
         public override void Display()
         {
-            Toolkit.TreeService.Show(Toolkit.DatabaseHandler.ReadTrees());
+            Toolkit.TreeService.Show(Toolkit.DatabaseHandler.ReadAllTrees());
 
             base.Display();
         }

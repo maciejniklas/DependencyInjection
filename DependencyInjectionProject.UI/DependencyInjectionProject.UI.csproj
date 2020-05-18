@@ -44,12 +44,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddImage.cs" />
+    <Compile Include="AddTree.cs" />
     <Compile Include="AllTrees.cs" />
+    <Compile Include="DeleteImage.cs" />
+    <Compile Include="DeleteTree.cs" />
+    <Compile Include="EditTree.cs" />
     <Compile Include="Exit.cs" />
+    <Compile Include="ImageOptions.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="MenuCore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectTree.cs" />
     <Compile Include="Toolkit.cs" />
+    <Compile Include="TreeOptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

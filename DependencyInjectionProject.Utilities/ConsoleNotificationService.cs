@@ -37,8 +37,7 @@ namespace DependencyInjectionProject.Utilities
 
         public void NotifyNotFound(Tree tree)
         {
-            Console.WriteLine("Not found that tree in database");
-            Console.WriteLine(tree);
+            Console.WriteLine($"Not found tree with given id {tree.ID}");
         }
 
         public void NotifyPlantYearModified(int plantYear)

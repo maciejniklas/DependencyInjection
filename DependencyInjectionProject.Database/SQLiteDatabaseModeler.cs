@@ -49,7 +49,7 @@ namespace DependencyInjectionProject.Database
                 sqlBuilder.Append(@"id INTEGER PRIMARY KEY AUTOINCREMENT,");
                 sqlBuilder.Append(@"treeID INTEGER,");
                 sqlBuilder.Append(@"asciiArt STRING NOT NULL,");
-                sqlBuilder.Append(@"FOREIGN KEY(treeID) REFERENCES Tree(id)");
+                sqlBuilder.Append(@"FOREIGN KEY(treeID) REFERENCES Tree(id) ON DELETE CASCADE");
                 sqlBuilder.Append(@")");
 
                 command.CommandText = sqlBuilder.ToString();

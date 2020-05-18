@@ -15,12 +15,12 @@
             GPSCoordinates = gpsCoordinates;
         }
         
-        public Tree(string id, string name, string plantYear, string x, string y)
+        public Tree(object[] data)
         {
-            ID = int.Parse(id);
-            Name = name;
-            PlantYear = int.Parse(plantYear);
-            GPSCoordinates = new Vector2(float.Parse(x), float.Parse(y));
+            ID = int.Parse(data[0].ToString());
+            Name = data[1].ToString();
+            PlantYear = int.Parse(data[2].ToString());
+            GPSCoordinates = new Vector2(float.Parse(data[3].ToString()), float.Parse(data[4].ToString()));
         }
 
         public override string ToString()
